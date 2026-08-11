@@ -30,14 +30,14 @@ class AuthController extends Controller
 
         if (! Auth::attempt($credentials, $request->boolean('remember'))) {
             throw ValidationException::withMessages([
-                'email' => 'These credentials do not match our records.',
+                'email' => __('These credentials do not match our records.'),
             ]);
         }
 
         $request->session()->regenerate();
 
         return redirect()->intended(Auth::user()->isAdmin() ? route('admin.dashboard') : route('home'))
-            ->with('success', 'Welcome back, '.Auth::user()->name.'!');
+            ->with('success', __('Welcome back, :name!', ['name' => Auth::user()->name]));
     }
 
     /**
@@ -69,7 +69,7 @@ class AuthController extends Controller
         Auth::login($user);
         $request->session()->regenerate();
 
-        return redirect()->route('home')->with('success', 'Your account has been created. Welcome to Shop2!');
+        return redirect()->route('home')->with('success', __('Your account has been created. Welcome to Shop2!'));
     }
 
     /**
@@ -82,6 +82,6 @@ class AuthController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return redirect()->route('home')->with('success', 'You have been logged out.');
+        return redirect()->route('home')->with('success', __('You have been logged out.'));
     }
 }

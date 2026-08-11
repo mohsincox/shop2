@@ -45,6 +45,6 @@ class OrderController extends Controller
 
         $order->update(['status' => $request->status]);
 
-        return back()->with('success', 'Order '.$order->order_number.' marked as '.$request->status.'.');
+        return back()->with('success', __('Order :number marked as :status.', ['number' => $order->order_number, 'status' => __(ucfirst($request->status))]));
     }
 }

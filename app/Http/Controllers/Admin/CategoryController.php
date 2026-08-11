@@ -33,7 +33,7 @@ class CategoryController extends Controller
 
         Category::create($data);
 
-        return back()->with('success', 'Category created successfully.');
+        return back()->with('success', __('Category created successfully.'));
     }
 
     /**
@@ -52,7 +52,7 @@ class CategoryController extends Controller
 
         $category->update($data);
 
-        return back()->with('success', 'Category updated successfully.');
+        return back()->with('success', __('Category updated successfully.'));
     }
 
     /**
@@ -66,7 +66,7 @@ class CategoryController extends Controller
 
         $category->delete();
 
-        return back()->with('success', 'Category deleted successfully.');
+        return back()->with('success', __('Category deleted successfully.'));
     }
 
     /**

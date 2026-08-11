@@ -21,7 +21,7 @@ class CheckoutController extends Controller
     public function index()
     {
         if ($this->cart->count() === 0) {
-            return redirect()->route('cart.index')->with('info', 'Your cart is empty. Add some products first.');
+            return redirect()->route('cart.index')->with('info', __('Your cart is empty. Add some products first.'));
         }
 
         return view('checkout', [
@@ -87,6 +87,6 @@ class CheckoutController extends Controller
         $this->cart->clear();
 
         return redirect()->route('orders.show', $order)
-            ->with('success', 'Thank you! Your order has been placed successfully.');
+            ->with('success', __('Thank you! Your order has been placed successfully.'));
     }
 }

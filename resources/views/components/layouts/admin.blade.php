@@ -22,30 +22,30 @@
                 <span class="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-indigo-500 to-violet-600 text-lg">&#128722;</span>
                 <div>
                     <p class="text-base font-extrabold tracking-tight text-white">Shop<span class="text-indigo-400">2</span></p>
-                    <p class="-mt-0.5 text-[10px] font-bold uppercase tracking-widest text-slate-500">Admin panel</p>
+                    <p class="-mt-0.5 text-[10px] font-bold uppercase tracking-widest text-slate-500">{{ __('Admin panel') }}</p>
                 </div>
             </div>
 
             <nav class="flex-1 space-y-1 overflow-y-auto px-3 py-6">
                 <a href="{{ route('admin.dashboard') }}"
                     class="{{ request()->routeIs('admin.dashboard') ? 'bg-indigo-600 text-white' : 'text-slate-300 hover:bg-slate-800 hover:text-white' }} flex items-center gap-3 rounded-xl px-4 py-2.5 text-sm font-semibold">
-                    <span class="text-base">&#128200;</span> Dashboard
+                    <span class="text-base">&#128200;</span> {{ __('Dashboard') }}
                 </a>
                 <a href="{{ route('admin.products.index') }}"
                     class="{{ request()->routeIs('admin.products.*') ? 'bg-indigo-600 text-white' : 'text-slate-300 hover:bg-slate-800 hover:text-white' }} flex items-center gap-3 rounded-xl px-4 py-2.5 text-sm font-semibold">
-                    <span class="text-base">&#127873;</span> Products
+                    <span class="text-base">&#127873;</span> {{ __('Products') }}
                 </a>
                 <a href="{{ route('admin.categories.index') }}"
                     class="{{ request()->routeIs('admin.categories.*') ? 'bg-indigo-600 text-white' : 'text-slate-300 hover:bg-slate-800 hover:text-white' }} flex items-center gap-3 rounded-xl px-4 py-2.5 text-sm font-semibold">
-                    <span class="text-base">&#128193;</span> Categories
+                    <span class="text-base">&#128193;</span> {{ __('Categories') }}
                 </a>
                 <a href="{{ route('admin.orders.index') }}"
                     class="{{ request()->routeIs('admin.orders.*') ? 'bg-indigo-600 text-white' : 'text-slate-300 hover:bg-slate-800 hover:text-white' }} flex items-center gap-3 rounded-xl px-4 py-2.5 text-sm font-semibold">
-                    <span class="text-base">&#128230;</span> Orders
+                    <span class="text-base">&#128230;</span> {{ __('Orders') }}
                 </a>
                 <a href="{{ route('admin.users.index') }}"
                     class="{{ request()->routeIs('admin.users.*') ? 'bg-indigo-600 text-white' : 'text-slate-300 hover:bg-slate-800 hover:text-white' }} flex items-center gap-3 rounded-xl px-4 py-2.5 text-sm font-semibold">
-                    <span class="text-base">&#128101;</span> Customers
+                    <span class="text-base">&#128101;</span> {{ __('Customers') }}
                 </a>
             </nav>
 
@@ -61,12 +61,12 @@
                 </div>
                 <div class="mt-3 flex gap-2">
                     <a href="{{ route('home') }}" class="flex-1 rounded-lg bg-slate-800 py-2 text-center text-xs font-bold text-slate-300 transition hover:bg-slate-700 hover:text-white">
-                        View store
+                        {{ __('View store') }}
                     </a>
                     <form method="POST" action="{{ route('logout') }}" class="flex-1">
                         @csrf
                         <button type="submit" class="w-full rounded-lg bg-rose-600/90 py-2 text-xs font-bold text-white transition hover:bg-rose-600">
-                            Sign out
+                            {{ __('Sign out') }}
                         </button>
                     </form>
                 </div>
@@ -77,7 +77,7 @@
         <div class="fixed inset-x-0 top-0 z-40 flex h-16 items-center justify-between border-b border-slate-200 bg-white px-4 lg:hidden">
             <div class="flex items-center gap-2">
                 <span class="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-indigo-500 to-violet-600 text-sm">&#128722;</span>
-                <span class="font-extrabold tracking-tight text-slate-900">Shop<span class="text-indigo-600">2</span> Admin</span>
+                <span class="font-extrabold tracking-tight text-slate-900">Shop<span class="text-indigo-600">2</span> {{ __('Admin') }}</span>
             </div>
             <button type="button" data-admin-menu-toggle class="inline-flex h-10 w-10 items-center justify-center rounded-lg text-slate-600 hover:bg-slate-100">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor" class="h-6 w-6">
@@ -89,12 +89,12 @@
         {{-- Mobile nav --}}
         <div data-admin-menu class="fixed inset-x-0 top-16 z-40 hidden border-b border-slate-200 bg-white p-3 shadow-xl lg:hidden">
             <nav class="grid grid-cols-2 gap-2">
-                <a href="{{ route('admin.dashboard') }}" class="{{ request()->routeIs('admin.dashboard') ? 'bg-indigo-50 text-indigo-700' : 'text-slate-700' }} rounded-xl px-4 py-3 text-sm font-semibold hover:bg-slate-50">Dashboard</a>
-                <a href="{{ route('admin.products.index') }}" class="{{ request()->routeIs('admin.products.*') ? 'bg-indigo-50 text-indigo-700' : 'text-slate-700' }} rounded-xl px-4 py-3 text-sm font-semibold hover:bg-slate-50">Products</a>
-                <a href="{{ route('admin.categories.index') }}" class="{{ request()->routeIs('admin.categories.*') ? 'bg-indigo-50 text-indigo-700' : 'text-slate-700' }} rounded-xl px-4 py-3 text-sm font-semibold hover:bg-slate-50">Categories</a>
-                <a href="{{ route('admin.orders.index') }}" class="{{ request()->routeIs('admin.orders.*') ? 'bg-indigo-50 text-indigo-700' : 'text-slate-700' }} rounded-xl px-4 py-3 text-sm font-semibold hover:bg-slate-50">Orders</a>
-                <a href="{{ route('admin.users.index') }}" class="{{ request()->routeIs('admin.users.*') ? 'bg-indigo-50 text-indigo-700' : 'text-slate-700' }} rounded-xl px-4 py-3 text-sm font-semibold hover:bg-slate-50">Customers</a>
-                <a href="{{ route('home') }}" class="rounded-xl px-4 py-3 text-sm font-semibold text-slate-700 hover:bg-slate-50">View store</a>
+                <a href="{{ route('admin.dashboard') }}" class="{{ request()->routeIs('admin.dashboard') ? 'bg-indigo-50 text-indigo-700' : 'text-slate-700' }} rounded-xl px-4 py-3 text-sm font-semibold hover:bg-slate-50">{{ __('Dashboard') }}</a>
+                <a href="{{ route('admin.products.index') }}" class="{{ request()->routeIs('admin.products.*') ? 'bg-indigo-50 text-indigo-700' : 'text-slate-700' }} rounded-xl px-4 py-3 text-sm font-semibold hover:bg-slate-50">{{ __('Products') }}</a>
+                <a href="{{ route('admin.categories.index') }}" class="{{ request()->routeIs('admin.categories.*') ? 'bg-indigo-50 text-indigo-700' : 'text-slate-700' }} rounded-xl px-4 py-3 text-sm font-semibold hover:bg-slate-50">{{ __('Categories') }}</a>
+                <a href="{{ route('admin.orders.index') }}" class="{{ request()->routeIs('admin.orders.*') ? 'bg-indigo-50 text-indigo-700' : 'text-slate-700' }} rounded-xl px-4 py-3 text-sm font-semibold hover:bg-slate-50">{{ __('Orders') }}</a>
+                <a href="{{ route('admin.users.index') }}" class="{{ request()->routeIs('admin.users.*') ? 'bg-indigo-50 text-indigo-700' : 'text-slate-700' }} rounded-xl px-4 py-3 text-sm font-semibold hover:bg-slate-50">{{ __('Customers') }}</a>
+                <a href="{{ route('home') }}" class="rounded-xl px-4 py-3 text-sm font-semibold text-slate-700 hover:bg-slate-50">{{ __('View store') }}</a>
             </nav>
         </div>
 
@@ -103,13 +103,34 @@
             {{-- Header --}}
             <header class="sticky top-0 z-30 hidden h-16 items-center justify-between border-b border-slate-200 bg-white/90 px-8 backdrop-blur lg:flex">
                 <div>
-                    <h1 class="text-lg font-extrabold text-slate-900">{{ $title ?? 'Dashboard' }}</h1>
+                    <h1 class="text-lg font-extrabold text-slate-900">{{ $title ?? __('Dashboard') }}</h1>
                 </div>
                 <div class="flex items-center gap-4">
+                    <div class="relative" data-dropdown>
+                        <button type="button" data-dropdown-toggle
+                            class="inline-flex h-9 items-center gap-1.5 rounded-full border border-slate-300 px-3 text-xs font-bold text-slate-600 transition hover:bg-slate-50"
+                            aria-label="{{ __('Language') }}">
+                            <span>🌐</span>
+                            <span class="uppercase">{{ app()->getLocale() === 'de' ? 'DE' : 'EN' }}</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="h-3 w-3 text-slate-400">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                            </svg>
+                        </button>
+                        <div data-dropdown-menu class="absolute right-0 top-11 z-50 hidden w-40 overflow-hidden rounded-xl border border-slate-200 bg-white py-1.5 shadow-lg">
+                            <a href="{{ route('language.switch', 'en') }}"
+                                class="{{ app()->getLocale() === 'en' ? 'bg-indigo-50 font-bold text-indigo-700' : 'text-slate-700' }} flex items-center gap-2 px-4 py-2 text-sm hover:bg-slate-50">
+                                🇬🇧 {{ __('English') }}
+                            </a>
+                            <a href="{{ route('language.switch', 'de') }}"
+                                class="{{ app()->getLocale() === 'de' ? 'bg-indigo-50 font-bold text-indigo-700' : 'text-slate-700' }} flex items-center gap-2 px-4 py-2 text-sm hover:bg-slate-50">
+                                🇩🇪 {{ __('Deutsch') }}
+                            </a>
+                        </div>
+                    </div>
                     <a href="{{ route('shop.index') }}" class="rounded-full border border-slate-300 px-4 py-1.5 text-xs font-bold text-slate-600 transition hover:bg-slate-50">
-                        View store
+                        {{ __('View store') }}
                     </a>
-                    <span class="rounded-full bg-indigo-50 px-3 py-1 text-xs font-bold text-indigo-700">Admin</span>
+                    <span class="rounded-full bg-indigo-50 px-3 py-1 text-xs font-bold text-indigo-700">{{ __('Admin') }}</span>
                 </div>
             </header>
 
@@ -139,7 +160,7 @@
             </main>
 
             <footer class="border-t border-slate-200 bg-white px-8 py-4 text-center text-xs text-slate-400">
-                &copy; {{ date('Y') }} Shop2 Admin Panel. All rights reserved.
+                &copy; {{ date('Y') }} Shop2. {{ __('All rights reserved.') }}
             </footer>
         </div>
     </div>

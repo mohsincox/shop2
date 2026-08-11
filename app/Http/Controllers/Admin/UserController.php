@@ -49,6 +49,6 @@ class UserController extends Controller
 
         $user->delete();
 
-        return back()->with('success', 'Customer deleted successfully.');
+        return back()->with('success', __('Customer deleted successfully.'));
     }
 }

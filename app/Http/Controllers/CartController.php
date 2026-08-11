@@ -42,7 +42,7 @@ class CartController extends Controller
 
         $this->cart->add($product->id, $request->integer('quantity', 1));
 
-        return back()->with('success', '"'.$product->name.'" was added to your cart.');
+        return back()->with('success', __(":name was added to your cart.", ["name" => '"'.$product->name.'"']));
     }
 
     /**
@@ -57,7 +57,7 @@ class CartController extends Controller
 
         $this->cart->update($request->product_id, $request->quantity);
 
-        return back()->with('success', 'Your cart has been updated.');
+        return back()->with('success', __('Your cart has been updated.'));
     }
 
     /**
@@ -71,7 +71,7 @@ class CartController extends Controller
 
         $this->cart->remove($request->product_id);
 
-        return back()->with('success', 'Item removed from your cart.');
+        return back()->with('success', __('Item removed from your cart.'));
     }
 
     /**

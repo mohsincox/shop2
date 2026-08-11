@@ -1,9 +1,9 @@
 <x-layouts.app :title="$product->name">
     <div class="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
         <nav class="text-sm text-slate-500">
-            <a href="{{ route('home') }}" class="hover:text-indigo-600">Home</a>
+            <a href="{{ route('home') }}" class="hover:text-indigo-600">{{ __("Home") }}</a>
             <span class="mx-2">/</span>
-            <a href="{{ route('shop.index') }}" class="hover:text-indigo-600">Shop</a>
+            <a href="{{ route('shop.index') }}" class="hover:text-indigo-600">{{ __("Shop") }}</a>
             <span class="mx-2">/</span>
             <a href="{{ route('shop.index', ['category' => $product->category?->slug]) }}" class="hover:text-indigo-600">{{ $product->category?->name }}</a>
             <span class="mx-2">/</span>
@@ -18,10 +18,10 @@
                         class="aspect-square w-full object-cover">
                 </div>
                 @if ($product->featured)
-                    <span class="absolute left-4 top-4 rounded-full bg-indigo-600 px-3 py-1.5 text-xs font-bold uppercase tracking-wide text-white shadow-lg">Featured</span>
+                    <span class="absolute left-4 top-4 rounded-full bg-indigo-600 px-3 py-1.5 text-xs font-bold uppercase tracking-wide text-white shadow-lg">{{ __("Featured") }}</span>
                 @endif
                 @if (!$product->isInStock())
-                    <span class="absolute left-4 top-4 rounded-full bg-rose-600 px-3 py-1.5 text-xs font-bold uppercase tracking-wide text-white shadow-lg">Sold out</span>
+                    <span class="absolute left-4 top-4 rounded-full bg-rose-600 px-3 py-1.5 text-xs font-bold uppercase tracking-wide text-white shadow-lg">{{ __("Sold out") }}</span>
                 @endif
             </div>
 
@@ -33,7 +33,7 @@
                 <div class="mt-4 flex items-center gap-2 text-sm text-slate-500">
                     <span class="flex text-amber-400">★★★★★</span>
                     <span class="font-semibold text-slate-900">4.9</span>
-                    <span>(128 reviews)</span>
+                    <span>({{ __("128 reviews") }})</span>
                 </div>
 
                 <div class="mt-6 flex items-center gap-3">
@@ -50,16 +50,16 @@
                 <div class="mt-6 flex items-center gap-3">
                     @if ($product->isInStock())
                         <span class="inline-flex items-center gap-1.5 rounded-full bg-emerald-50 px-3 py-1.5 text-xs font-bold text-emerald-700">
-                            <span class="h-2 w-2 rounded-full bg-emerald-500"></span> In stock · {{ $product->stock }} available
+                            <span class="h-2 w-2 rounded-full bg-emerald-500"></span> {{ __("In stock") }} · {{ $product->stock }} {{ __("available") }}
                         </span>
                     @else
                         <span class="inline-flex items-center gap-1.5 rounded-full bg-rose-50 px-3 py-1.5 text-xs font-bold text-rose-700">
-                            <span class="h-2 w-2 rounded-full bg-rose-500"></span> Out of stock
+                            <span class="h-2 w-2 rounded-full bg-rose-500"></span> {{ __("Out of stock") }}
                         </span>
                     @endif
                 </div>
 
-                {{-- Add to cart --}}
+                {{-- {{ __("Add to cart") }} --}}
                 <form method="POST" action="{{ route('cart.index') }}" class="mt-8 flex flex-wrap items-center gap-4">
                     @csrf
                     <input type="hidden" name="product_id" value="{{ $product->id }}">
@@ -74,7 +74,7 @@
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="h-5 w-5">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
                         </svg>
-                        Add to cart
+                        {{ __("Add to cart") }}
                     </button>
                 </form>
 
@@ -82,18 +82,18 @@
                 <div class="mt-10 grid grid-cols-3 gap-3 rounded-2xl border border-slate-200 bg-white p-5 text-center">
                     <div>
                         <p class="text-xl">🚚</p>
-                        <p class="mt-1 text-xs font-semibold text-slate-700">Free shipping</p>
-                        <p class="text-[11px] text-slate-500">Orders $100+</p>
+                        <p class="mt-1 text-xs font-semibold text-slate-700">{{ __("Free shipping") }}</p>
+                        <p class="text-[11px] text-slate-500">{{ __("Orders $100+") }}</p>
                     </div>
                     <div>
                         <p class="text-xl">↩️</p>
-                        <p class="mt-1 text-xs font-semibold text-slate-700">Easy returns</p>
-                        <p class="text-[11px] text-slate-500">30 days</p>
+                        <p class="mt-1 text-xs font-semibold text-slate-700">{{ __("Easy returns") }}</p>
+                        <p class="text-[11px] text-slate-500">{{ __("30 days") }}</p>
                     </div>
                     <div>
                         <p class="text-xl">🛡️</p>
-                        <p class="mt-1 text-xs font-semibold text-slate-700">Secure checkout</p>
-                        <p class="text-[11px] text-slate-500">SSL encrypted</p>
+                        <p class="mt-1 text-xs font-semibold text-slate-700">{{ __("Secure checkout") }}</p>
+                        <p class="text-[11px] text-slate-500">{{ __("SSL encrypted") }}</p>
                     </div>
                 </div>
             </div>
@@ -102,7 +102,7 @@
         {{-- Related products --}}
         @if ($related->isNotEmpty())
             <section class="mt-20">
-                <h2 class="text-2xl font-extrabold tracking-tight text-slate-900">You may also like</h2>
+                <h2 class="text-2xl font-extrabold tracking-tight text-slate-900">{{ __("You may also like") }}</h2>
                 <div class="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
                     @foreach ($related as $item)
                         <x-product-card :product="$item" />

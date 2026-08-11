@@ -1,11 +1,11 @@
-<x-layouts.admin title="Customers">
+<x-layouts.admin :title="__('Customers')">
     <div class="flex flex-wrap items-center justify-between gap-4">
         <form action="{{ route('admin.users.index') }}" method="GET" class="flex gap-2">
-            <input type="search" name="q" value="{{ request('q') }}" placeholder="Search customers..."
+            <input type="search" name="q" value="{{ request('q') }}" placeholder="{{ __("Search customers...") }}"
                 class="w-64 rounded-xl border border-slate-300 bg-white px-4 py-2 text-sm focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-100">
-            <button type="submit" class="rounded-xl bg-indigo-600 px-4 py-2 text-sm font-bold text-white hover:bg-indigo-700">Search</button>
+            <button type="submit" class="rounded-xl bg-indigo-600 px-4 py-2 text-sm font-bold text-white hover:bg-indigo-700">{{ __("Search") }}</button>
         </form>
-        <p class="text-sm text-slate-500">{{ $users->total() }} customers</p>
+        <p class="text-sm text-slate-500">{{ $users->total() }} {{ __("customers") }}</p>
     </div>
 
     <div class="mt-6 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
@@ -13,11 +13,11 @@
             <table class="w-full text-sm">
                 <thead>
                     <tr class="border-b border-slate-100 bg-slate-50 text-left text-xs uppercase tracking-wider text-slate-400">
-                        <th class="px-6 py-3.5 font-bold">Customer</th>
-                        <th class="px-6 py-3.5 font-bold">Email</th>
-                        <th class="px-6 py-3.5 font-bold">Orders</th>
-                        <th class="px-6 py-3.5 font-bold">Joined</th>
-                        <th class="px-6 py-3.5 text-right font-bold">Actions</th>
+                        <th class="px-6 py-3.5 font-bold">{{ __("Customer") }}</th>
+                        <th class="px-6 py-3.5 font-bold">{{ __("Email") }}</th>
+                        <th class="px-6 py-3.5 font-bold">{{ __("Orders") }}</th>
+                        <th class="px-6 py-3.5 font-bold">{{ __("Joined") }}</th>
+                        <th class="px-6 py-3.5 text-right font-bold">{{ __("Actions") }}</th>
                     </tr>
                 </thead>
                 <tbody class="divide-y divide-slate-100">
@@ -39,12 +39,12 @@
                             <td class="px-6 py-4">
                                 <div class="flex justify-end gap-2">
                                     <a href="{{ route('admin.users.show', $user) }}"
-                                        class="rounded-lg border border-slate-200 px-3 py-1.5 text-xs font-bold text-slate-600 transition hover:border-indigo-300 hover:text-indigo-600">View</a>
+                                        class="rounded-lg border border-slate-200 px-3 py-1.5 text-xs font-bold text-slate-600 transition hover:border-indigo-300 hover:text-indigo-600">{{ __("View") }}</a>
                                     <form method="POST" action="{{ route('admin.users.destroy', $user) }}"
-                                        onsubmit="return confirm('Delete this customer permanently? This will also remove their orders.')">
+                                        onsubmit="return confirm('{{ __("Delete this customer permanently? This will also remove their orders.") }}')">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="rounded-lg border border-rose-200 px-3 py-1.5 text-xs font-bold text-rose-600 transition hover:bg-rose-50">Delete</button>
+                                        <button type="submit" class="rounded-lg border border-rose-200 px-3 py-1.5 text-xs font-bold text-rose-600 transition hover:bg-rose-50">{{ __("Delete") }}</button>
                                     </form>
                                 </div>
                             </td>
@@ -53,7 +53,7 @@
                         <tr>
                             <td colspan="5" class="px-6 py-16 text-center text-slate-400">
                                 <p class="text-4xl">&#128101;</p>
-                                <p class="mt-3 font-semibold">No customers found</p>
+                                <p class="mt-3 font-semibold">No {{ __("customers") }} found</p>
                             </td>
                         </tr>
                     @endforelse

@@ -55,7 +55,7 @@ class ProductController extends Controller
         Product::create($data);
 
         return redirect()->route('admin.products.index')
-            ->with('success', 'Product created successfully.');
+            ->with('success', __('Product created successfully.'));
     }
 
     /**
@@ -85,7 +85,7 @@ class ProductController extends Controller
         $product->update($data);
 
         return redirect()->route('admin.products.index')
-            ->with('success', 'Product updated successfully.');
+            ->with('success', __('Product updated successfully.'));
     }
 
     /**
@@ -95,7 +95,7 @@ class ProductController extends Controller
     {
         $product->delete();
 
-        return back()->with('success', 'Product deleted successfully.');
+        return back()->with('success', __('Product deleted successfully.'));
     }
 
     /**

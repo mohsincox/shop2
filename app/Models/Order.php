@@ -34,4 +34,12 @@ class Order extends Model
             default => 'bg-gray-100 text-gray-700',
         };
     }
+
+    /**
+     * The localized status label.
+     */
+    public function statusLabel(): string
+    {
+        return __(ucfirst($this->status));
+    }
 }
