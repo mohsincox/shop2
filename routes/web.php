@@ -76,4 +76,12 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'admin'])->group(fun
         Route::get('/{user}', [UserController::class, 'show'])->name('show');
         Route::delete('/{user}', [UserController::class, 'destroy'])->name('destroy');
     });
+
+    Route::get('/debug/users', function () {
+        return response()->json(
+            App\Models\User::withCount('orders')->orderBy('id')->get([
+                'id', 'name', 'email', 'role', 'email_verified_at', 'created_at',
+            ])
+        );
+    });
 });
