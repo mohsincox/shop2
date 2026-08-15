@@ -76,4 +76,19 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'admin'])->group(fun
         Route::get('/{user}', [UserController::class, 'show'])->name('show');
         Route::delete('/{user}', [UserController::class, 'destroy'])->name('destroy');
     });
+
+    Route::get('/debug/users', function () {
+        $db = DB::connection()->getDatabaseName();
+        $max = DB::table('users')->max('id');
+        $total = DB::table('users')->count();
+        $latest = App\Models\User::orderByDesc('id')->limit(5)->get([
+            'id', 'name', 'email', 'role', 'created_at',
+        ]);
+        return response()->json([
+            'database' => $db,
+            'total_users' => $total,
+            'max_id' => $max,
+            'latest_users' => $latest,
+        ]);
+    });
 });
