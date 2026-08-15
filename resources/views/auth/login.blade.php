@@ -52,9 +52,9 @@
                 </form>
             </div>
 
-            <p class="mt-6 text-center text-xs text-slate-500">
+            <!-- <p class="mt-6 text-center text-xs text-slate-500">
                 {{ __("Demo admin account:") }} <span class="font-semibold text-slate-700">admin@shop2.com</span> / <span class="font-semibold text-slate-700">password</span>
-            </p>
+            </p> -->
         </div>
     </div>
 </x-layouts.app>
