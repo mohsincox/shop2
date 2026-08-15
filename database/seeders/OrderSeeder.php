@@ -17,10 +17,16 @@ class OrderSeeder extends Seeder
         $customers = User::where('role', 'customer')->get();
 
         if ($customers->isEmpty()) {
-            $customers = collect([User::factory()->create()]);
+            return;
         }
 
-        foreach ($customers->take(6) as $customer) {
+        $names = ['Alice Johnson', 'Ben Carter', 'Chloe Nguyen', 'David Kim', 'Emma Wilson', 'Liam Brown'];
+        $streets = ['42 Maple Street', '17 Oak Avenue', '88 Cedar Lane', '5 Pine Road', '120 Birch Blvd', '33 Willow Court'];
+        $cities = ['Springfield', 'Riverside', 'Brookfield', 'Fairview', 'Lakeside', 'Greenfield'];
+        $zips = ['12345', '67890', '34567', '89012', '45678', '90123'];
+        $phones = ['555-0101', '555-0102', '555-0103', '555-0104', '555-0105', '555-0106'];
+
+        foreach ($customers->take(6) as $index => $customer) {
             $itemCount = rand(1, 4);
 
             for ($i = 0; $i < $itemCount; $i++) {
@@ -48,13 +54,13 @@ class OrderSeeder extends Seeder
                     'total' => $total,
                     'name' => $customer->name,
                     'email' => $customer->email,
-                    'phone' => fake()->phoneNumber(),
-                    'address' => fake()->streetAddress(),
-                    'city' => fake()->city(),
-                    'zip' => fake()->postcode(),
+                    'phone' => $phones[$index % count($phones)],
+                    'address' => $streets[$index % count($streets)],
+                    'city' => $cities[$index % count($cities)],
+                    'zip' => $zips[$index % count($zips)],
                     'payment_method' => collect(['cod', 'card'])->random(),
                     'notes' => rand(0, 1) ? 'Please leave at the front door.' : null,
-                    'created_at' => fake()->dateTimeBetween('-6 months'),
+                    'created_at' => now()->subDays(rand(1, 180)),
                     'updated_at' => now(),
                 ]);
 
