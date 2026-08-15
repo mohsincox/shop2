@@ -10,7 +10,7 @@
                 <div class="bg-gradient-to-br from-violet-600 to-indigo-700 px-8 py-8 text-center">
                     <div class="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-white/15 text-3xl backdrop-blur">🎉</div>
                     <h1 class="mt-4 text-2xl font-extrabold text-white">{{ __("Create your account") }}</h1>
-                    <p class="mt-1 text-sm text-violet-100">{{ __("Join Shop2 and start shopping today") }}</p>
+                    <p class="mt-1 text-sm text-violet-100">{{ __("Join Shop and start shopping today") }}</p>
                 </div>
 
                 <form method="POST" action="{{ route('register') }}" class="space-y-5 px-8 py-8">

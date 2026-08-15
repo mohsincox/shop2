@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ $title ? $title.' · ' : '' }}{{ config('app.name', 'Shop2') }}</title>
+    <title>{{ $title ? $title.' · ' : '' }}{{ config('app.name', 'Shop') }}</title>
 
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛍️</text></svg>">
 
@@ -238,7 +238,7 @@
                     </div>
                 </div>
                 <div class="mt-12 flex flex-col items-center justify-between gap-4 border-t border-slate-800 pt-8 text-sm text-slate-500 sm:flex-row">
-                    <p>© {{ date('Y') }} Shop2. {{ __('All rights reserved.') }}</p>
+                    <p>© {{ date('Y') }} Shop. {{ __('All rights reserved.') }}</p>
                     <div class="flex items-center gap-4">
                         <span>Visa</span><span>Mastercard</span><span>PayPal</span><span>Cash on Delivery</span>
                     </div>

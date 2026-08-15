@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ $title ? $title.' · ' : '' }}Admin · {{ config('app.name', 'Shop2') }}</title>
+    <title>{{ $title ? $title.' · ' : '' }}Admin · {{ config('app.name', 'Shop') }}</title>
 
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>%E2%9A%99%EF%B8%8F</text></svg>">
 
@@ -160,7 +160,7 @@
             </main>
 
             <footer class="border-t border-slate-200 bg-white px-8 py-4 text-center text-xs text-slate-400">
-                &copy; {{ date('Y') }} Shop2. {{ __('All rights reserved.') }}
+                &copy; {{ date('Y') }} Shop. {{ __('All rights reserved.') }}
             </footer>
         </div>
     </div>
